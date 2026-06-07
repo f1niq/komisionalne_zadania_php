@@ -30,6 +30,24 @@ Požiadavky:
     <pre><?php echo htmlspecialchars(file_get_contents(__FILE__)); ?></pre>
 
     <!-- Sem napíš svoje riešenie. -->
-
+    <form action="Priklad2.php" method="post">
+    <label>email</label>
+    <input type="email" name="email" placeholder="Zadaj mail">
+    <label>Heslo</label>
+    <input type="password" name="heslo" placeholder="Zadaj heslo">
+    <button type="submit">Odosli</button>
+    </form>
 </body>
 </html>
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(!empty($_POST['email']) && !empty($_POST['heslo'])){
+                echo "uspesne poslany";
+        }   else{
+                echo "nevyplnil si vsetko";
+        
+    }
+} else{
+    echo "neposlal sa";
+}
+?>
