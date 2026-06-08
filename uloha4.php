@@ -43,6 +43,37 @@ Požiadavky:
     <pre><?php echo htmlspecialchars(file_get_contents(__FILE__)); ?></pre>
 
     <!-- Sem napíš svoje riešenie. -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<?php
+$spojenie = mysqli_connect('localhost', 'root', 'root', 'skola');
+mysqli_set_charset($spojenie, 'utf8mb4');
+if(!$spojenie){
+    echo "nepripojene";
+} else {
+    echo "uspesne pripojene";
+    echo "<br>";
+}
+
+
+$vysledok = mysqli_query($spojenie, "SELECT * FROM ziaci");
+
+while($riadok = mysqli_fetch_assoc($vysledok)){
+    echo $riadok['meno'] . " - " . $riadok['email'];
+    echo "<br>";
+
+}
+
+
+?>
+</body>
+</html>
 
 </body>
 </html>
